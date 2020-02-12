@@ -38,11 +38,17 @@
                             <asp:TableCell ColumnSpan="2">Select a calendar date to view, add, edit or delete a journal entry.</asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell Width="100%" Height="40%"><asp:Calendar ID="calendarDiary" runat="server" Height="40%"  Width="100%"></asp:Calendar></asp:TableCell>
+                            <asp:TableCell ColumnSpan="2"><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell Width="100%" Height="300px"><asp:TextBox ID="txtJournal" ReadOnly="true" BackColor="Transparent" runat="server" Height="100%"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
-                        </asp:TableRow>                        
+                            <asp:TableCell Width="100%" Height="40%"><asp:Calendar ID="calendarDiary" runat="server" Height="40%"  Width="100%" OnSelectionChanged="calendarDiary_SelectionChanged"></asp:Calendar></asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell Width="100%"><asp:TextBox ID="txtJournal" ReadOnly="true" BackColor="Transparent" runat="server" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell Width="100%"><asp:TextBox ID="txtEditJournal" BackColor="White" runat="server" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
+                        </asp:TableRow>
                     </asp:Table> 
                 </td>
             </tr>
@@ -51,8 +57,12 @@
                 <td>
                     <asp:Table runat="server" Height="100%" Width="100%">
                         <asp:TableRow>
-                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
+                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons" OnClick="btnAddJournal_Click"/></asp:TableCell>                                                       
+                        </asp:TableRow>
+                        <asp:TableRow>
                             <asp:TableCell><asp:Button ID="btnEditJournal" runat="server" Text="Edit journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
                             <asp:TableCell><asp:Button ID="btnDeleteJournal" runat="server" Text="Delete journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
                         </asp:TableRow>                       
                     </asp:Table> 

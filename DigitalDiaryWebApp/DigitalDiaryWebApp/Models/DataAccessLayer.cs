@@ -89,5 +89,30 @@ namespace DigitalDiaryWebApp.Models
                 return true;
             return false;
         }
+
+        public bool CheckJournalEntryExists(string journalDate, string emailId)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@JournalDate", journalDate);
+            command.Parameters.AddWithValue("@EmailId", emailId);
+            command.CommandText = "SELECT COUNT(*) FROM[Diary] WHERE([JournalDate] = @JournalDate AND [EmailId] = @EmailId)";
+            int recordCount = CheckRecordExistInTable(command);
+            if (recordCount > 0)
+                return true;
+            return false;
+        }
+
+        public void AddDiaryJournalEntry(string journalDate, string emailId, string journalContent)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@JournalDate", journalDate);
+            command.Parameters.AddWithValue("@EmailId", emailId);
+            command.Parameters.AddWithValue("@JournalContent", journalContent);
+            command.CommandText = "INSERT into [Diary] (JournalDate,EmailId,JournalContent) " +
+                                  "VALUES (@JournalDate,@EmailId,@JournalContent)";
+
+            // Execute sql query command object with given parameters.
+            InsertOrUpdateOrDeleteData(command);
+        }
     }
 }
