@@ -1,5 +1,6 @@
-html
-{ height: 100%;}
+menubarhtml {
+    height: 100%;
+}
 
 *
 { margin: 0;
@@ -136,7 +137,8 @@ ol li
 { width: 898px;
   height: 52px;
   padding: 0;
-  background: transparent url(transparent.png) repeat;} 
+  background: transparent url(transparent.png) repeat;
+} 
 
 ul#menu, ul#menu li
 { float: left;

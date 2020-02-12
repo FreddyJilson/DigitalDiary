@@ -30,8 +30,7 @@
 
     <div id="site_content">
             <table>
-                          <tr>
-                              
+                          <tr>                              
                               <td>
                             <asp:Table runat="server">
                              <asp:TableRow>
@@ -43,26 +42,29 @@
                              </asp:TableRow>
                              <asp:TableRow>
                                  <asp:TableCell>Password:</asp:TableCell>
-                                 <asp:TableCell><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></asp:TableCell>
+                                 <asp:TableCell><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></asp:TableCell>
                              </asp:TableRow>
                              <asp:TableRow>
-                                 <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignIn" runat="server" Text="Sign in" Width="100%" CssClass="myButtons" /></asp:TableCell>
+                                 <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignIn" runat="server" Text="Sign in" Width="100%" CssClass="myButtons" OnClick="btnSignIn_Click" /></asp:TableCell>
                              </asp:TableRow>
                              <asp:TableRow>
                                  <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignUp" runat="server" Text="Sign up" Width="100%" CssClass="myButtons" OnClick="btnSignUp_Click"/></asp:TableCell>
                              </asp:TableRow>
                          </asp:Table>
                          </td>
-                              <td>
-                                  <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>     
-                              </td>
+                          <td>
+                          <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>     
+                          </td>
                       </tr>
+                <tr>
+                    <td><asp:Label ID="lblFreeTrial" runat="server" Text="For free trial: Username is MyDiary and Password is MyDiary100%"></asp:Label></td>
+                </tr>
             </table>
     </div>
     <div id="footer">      
         <table style="width: 100%">
          <tr>
-            <td colspan="2"><h2>Contact us</h2></td>            
+            <td colspan="2"><h2>Contact: Freddy Jilson</h2></td>            
         </tr>
             
         <tr>

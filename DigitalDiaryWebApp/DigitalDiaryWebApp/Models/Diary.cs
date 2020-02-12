@@ -1,14 +1,23 @@
-﻿namespace DigitalDiaryWebApp.Models
+﻿using System;
+
+namespace DigitalDiaryWebApp.Models
 {
     public class Diary
     {
         // Fields
-        private User userDiary;
+        private User user;
+        private DataAccessLayer databaseAccess;
+
+        // Properties
+        public DateTime JournalDate { get; set; }
+        public User GetUser { get{ return user; } }
+        public string Content { get; set; }
 
         // Constructors
         public Diary()
         {
-            userDiary = new User();
+            user = new User();
+            databaseAccess = new DataAccessLayer();
         }
 
         // Methods

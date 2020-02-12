@@ -12,7 +12,10 @@ namespace DigitalDiaryWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["User"] != null)
+            {
+                Response.Redirect("Diary.aspx");
+            }
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)
@@ -26,6 +29,22 @@ namespace DigitalDiaryWebApp
             else
             {
                 Response.Redirect("Register.aspx");
+            }
+        }
+
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            var user = new User();
+            Session["User"] = user.Login(txtUsername.Text, txtPassword.Text);
+
+            if (Session["User"] != null)
+            {
+                Response.Redirect("Diary.aspx");
+            }
+
+            else
+            {
+                lblErrorMessage.Text = "Please enter a valid username and password";
             }
         }
     }
