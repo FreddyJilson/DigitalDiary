@@ -128,6 +128,16 @@ namespace DigitalDiaryWebApp
                 }
             }
         }
+
+        protected void btnEditJournal_Click(object sender, EventArgs e)
+        {
+            User user = (User)Session["User"];
+            var diary = new Models.Diary();            
+            diary.GetUser.EmailId = user.EmailId;
+            diary.JournalDate = calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy");
+            Session["JournalEntry"] = diary;
+            Response.Redirect("EditJournal.aspx");
+        }
     }
 }
  

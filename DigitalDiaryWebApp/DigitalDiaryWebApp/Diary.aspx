@@ -68,10 +68,10 @@
                 <td>
                     <asp:Table runat="server" Height="100%" Width="100%">
                         <asp:TableRow>
-                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons" OnClientClick="AddEntryClick();" OnClick="btnAddJournal_Click"/></asp:TableCell>                                                       
+                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons" OnClick="btnAddJournal_Click"/></asp:TableCell>                                                       
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell><asp:Button ID="btnEditJournal" runat="server" Text="Edit journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
+                            <asp:TableCell><asp:Button ID="btnEditJournal" runat="server" Text="Edit journal" Width="100%" CssClass="myButtons" OnClick="btnEditJournal_Click"/></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell><asp:Button ID="btnDeleteJournal" runat="server" Text="Delete journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
