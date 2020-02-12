@@ -68,11 +68,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
+    <Content Include="style\background.png" />
+    <Content Include="style\bullet.png" />
+    <Content Include="style\graphic.png" />
+    <Content Include="style\link.png" />
+    <Content Include="style\search.png" />
+    <Content Include="style\style.css" />
+    <Content Include="style\transparent.png" />
+    <Content Include="style\transparent_light.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
