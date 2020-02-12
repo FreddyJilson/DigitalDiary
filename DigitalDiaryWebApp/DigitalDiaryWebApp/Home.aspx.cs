@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalDiaryWebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,20 @@ namespace DigitalDiaryWebApp
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSignUp_Click(object sender, EventArgs e)
+        {
+            if(Session["User"] != null)
+            {
+                User user = (User)Session["User"];
+                lblErrorMessage.Text = "You are logged in as " + user.Fullname + ". Please logout and then sign up.";                
+            }
+
+            else
+            {
+                Response.Redirect("Register.aspx");
+            }
         }
     }
 }

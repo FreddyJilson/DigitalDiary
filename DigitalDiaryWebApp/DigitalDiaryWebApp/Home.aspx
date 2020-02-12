@@ -29,25 +29,35 @@
    </div>
 
     <div id="site_content">
-     <asp:Table runat="server">
-         <asp:TableRow>
-             <asp:TableCell ColumnSpan="2"><h2>Login</h2></asp:TableCell>
-         </asp:TableRow>
-         <asp:TableRow>
-             <asp:TableCell>Username: </asp:TableCell>
-             <asp:TableCell><asp:TextBox ID="txtUsername" runat="server"></asp:TextBox></asp:TableCell>
-         </asp:TableRow>
-         <asp:TableRow>
-             <asp:TableCell>Password:</asp:TableCell>
-             <asp:TableCell><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></asp:TableCell>
-         </asp:TableRow>
-         <asp:TableRow>
-             <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignIn" runat="server" Text="Sign in" Width="100%" CssClass="myButtons" /></asp:TableCell>
-         </asp:TableRow>
-         <asp:TableRow>
-             <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignUp" runat="server" Text="Sign up" Width="100%" CssClass="myButtons" /></asp:TableCell>
-         </asp:TableRow>
-     </asp:Table>
+            <table>
+                          <tr>
+                              
+                              <td>
+                            <asp:Table runat="server">
+                             <asp:TableRow>
+                                 <asp:TableCell ColumnSpan="2"><h2>Login</h2></asp:TableCell>
+                             </asp:TableRow>
+                             <asp:TableRow>
+                                 <asp:TableCell>Username: </asp:TableCell>
+                                 <asp:TableCell><asp:TextBox ID="txtUsername" runat="server"></asp:TextBox></asp:TableCell>
+                             </asp:TableRow>
+                             <asp:TableRow>
+                                 <asp:TableCell>Password:</asp:TableCell>
+                                 <asp:TableCell><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></asp:TableCell>
+                             </asp:TableRow>
+                             <asp:TableRow>
+                                 <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignIn" runat="server" Text="Sign in" Width="100%" CssClass="myButtons" /></asp:TableCell>
+                             </asp:TableRow>
+                             <asp:TableRow>
+                                 <asp:TableCell ColumnSpan="2"><asp:Button ID="btnSignUp" runat="server" Text="Sign up" Width="100%" CssClass="myButtons" OnClick="btnSignUp_Click"/></asp:TableCell>
+                             </asp:TableRow>
+                         </asp:Table>
+                         </td>
+                              <td>
+                                  <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>     
+                              </td>
+                      </tr>
+            </table>
     </div>
     <div id="footer">      
         <table style="width: 100%">
