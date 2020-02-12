@@ -114,5 +114,14 @@ namespace DigitalDiaryWebApp.Models
             // Execute sql query command object with given parameters.
             InsertOrUpdateOrDeleteData(command);
         }
+
+        public DataSet ViewJournalEntryByDateAndEmailId(string journalDate, string emailId)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@JournalDate", journalDate);
+            command.Parameters.AddWithValue("@EmailId", emailId);
+            command.CommandText = "SELECT * FROM[Diary] WHERE([JournalDate] = @JournalDate AND [EmailId] = @EmailId)";
+            return ReadData(command);
+        }
     }
 }

@@ -10,7 +10,8 @@ namespace DigitalDiaryWebApp.Models
         private DataAccessLayer databaseAccess;
 
         // Properties
-        public DateTime JournalDate { get; set; }
+        public string DiaryEntryId { get; set; }
+        public string JournalDate { get; set; }
         public User GetUser { get{ return user; } }
         public string Content { get; set; }
 
@@ -23,10 +24,29 @@ namespace DigitalDiaryWebApp.Models
 
         // Methods
 
-        public bool CheckJournalExistsForTheUser(string selectedDate, string emailId)
+        public Diary ViewJournalEntry(string selectedDate, string emailId)
         {
-            return databaseAccess.CheckJournalEntryExists(selectedDate, emailId);
+            var JournalEntry = databaseAccess.ViewJournalEntryByDateAndEmailId(selectedDate,emailId);
+            //Get the result of Diary datatable
+            var journalDataTable = JournalEntry.Tables[0];
+            Diary myDiary = new Diary();
+            
+            //Loop through the User Data table and if user id or password or email matches then return the User object with all details
+            if (journalDataTable != null)
+            {
+                for (int i = 0; i < journalDataTable.Rows.Count; i++)
+                {
+                    myDiary.DiaryEntryId = journalDataTable.Rows[i]["DiaryEntryId"].ToString();
+                    myDiary.JournalDate = journalDataTable.Rows[i]["JournalDate"].ToString();
+                    myDiary.GetUser.EmailId = journalDataTable.Rows[i]["EmailId"].ToString();
+                    myDiary.Content = journalDataTable.Rows[i]["JournalContent"].ToString();                    
+                }
+                return myDiary;
+            }
+            // If diary details are null.
+            return null;
         }
+        
 
         public List<string> AddJournalEntry(string selectedDate, string emailId, string journalContent)
         {
@@ -35,9 +55,14 @@ namespace DigitalDiaryWebApp.Models
             if (feedbackMessages.Count == 0)
             {
                 databaseAccess.AddDiaryJournalEntry(selectedDate, emailId, journalContent);
-                feedbackMessages.Add("Your journal entry is now added");
+                feedbackMessages.Add("* Your journal entry is now added for the date: " + selectedDate);
             }
             return feedbackMessages;
+        }
+
+        public bool CheckJournalExistsForTheUser(string selectedDate, string emailId)
+        {
+            return databaseAccess.CheckJournalEntryExists(selectedDate, emailId);
         }
 
         public List<string> ValidateJournalEntry(string selectedDate, string emailId, string journalContent)
@@ -45,12 +70,12 @@ namespace DigitalDiaryWebApp.Models
             var feedbackMessages = new List<string>();
             if (!ValidateJournalContent(journalContent))
             {
-                feedbackMessages.Add("Please enter valid journal entry of atleast 100 characters and not more than 8000 characters");
+                feedbackMessages.Add("* Please enter valid journal entry of atleast 100 characters and not more than 8000 characters");
             }
 
             if (CheckJournalExistsForTheUser(selectedDate, emailId))
             {
-                feedbackMessages.Add("Already a journal entry for this date exists, please click edit if you would like to edit the journal");
+                feedbackMessages.Add("* Already a journal entry for this date exists, please click edit if you would like to edit the journal");
             }
             return feedbackMessages;
         }

@@ -71,7 +71,7 @@ namespace DigitalDiaryWebApp.Models
                 string passwordHash = EncryptPassword(Password);
 
                 databaseAccess.RegisterUser(EmailId, userIDHash, passwordHash, Fullname);
-                result.Add("You have now created the account, please login.");
+                result.Add("* You have now created the account, please login.");
             }
             return result;
         }

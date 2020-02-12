@@ -28,17 +28,26 @@
       </div>
    </div>
 
-    <div id="site_content">
-    <h3><asp:Label ID="lblFullname" runat="server" Text=""></asp:Label></h3>
+    <div id="site_content">            
+        
+        <div>
+            <table style="height: 100%; width: 100%;">
+                <tr>
+                    <td><h3><asp:Label ID="lblFullname" runat="server" Text=""></asp:Label></h3></td>
+                    <td><asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="myButtons" Height="100%" Width="100%" OnClick="btnLogout_Click"/></td>
+                </tr>            
+            </table>            
+        </div>
+
         <table style="height: 100%; width: 100%;">
             <tr>
                 <td>
                     <asp:Table runat="server" Height="100%" Width="100%">
                         <asp:TableRow>
-                            <asp:TableCell ColumnSpan="2">Select a calendar date to view, add, edit or delete a journal entry.</asp:TableCell>
+                            <asp:TableCell>Select a calendar date to view, add, edit or delete a journal entry.</asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell ColumnSpan="2"><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></asp:TableCell>
+                            <asp:TableCell ColumnSpan="2"><asp:Label ForeColor="Red" ID="lblMessage" runat="server" Text=""></asp:Label></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell Width="100%" Height="40%"><asp:Calendar ID="calendarDiary" runat="server" Height="40%"  Width="100%" OnSelectionChanged="calendarDiary_SelectionChanged"></asp:Calendar></asp:TableCell>
@@ -46,8 +55,10 @@
                         <asp:TableRow>
                             <asp:TableCell Width="100%"><asp:TextBox ID="txtJournal" ReadOnly="true" BackColor="Transparent" runat="server" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
                         </asp:TableRow>
+
+                        <asp:TableRow><asp:TableCell><asp:Label ID="lblCountCharacters" runat="server" Text=""></asp:Label></asp:TableCell></asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell Width="100%"><asp:TextBox ID="txtEditJournal" BackColor="White" runat="server" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
+                            <asp:TableCell Width="100%"><asp:TextBox ID="txtEditJournal" Text="Type here to add your journal entry..." BackColor="White" runat="server" ToolTip="Type here to add or edit your journal entry!" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
                         </asp:TableRow>
                     </asp:Table> 
                 </td>
@@ -57,7 +68,7 @@
                 <td>
                     <asp:Table runat="server" Height="100%" Width="100%">
                         <asp:TableRow>
-                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons" OnClick="btnAddJournal_Click"/></asp:TableCell>                                                       
+                            <asp:TableCell><asp:Button ID="btnAddJournal" runat="server" Text="Add journal" Width="100%" CssClass="myButtons" OnClientClick="AddEntryClick();" OnClick="btnAddJournal_Click"/></asp:TableCell>                                                       
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell><asp:Button ID="btnEditJournal" runat="server" Text="Edit journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
@@ -69,7 +80,16 @@
                 </td>
             </tr>
         </table>
-             
+        <script>
+            var inputBox = document.getElementById('txtEditJournal');            
+
+            inputBox.onkeyup = function () {
+                var noOfCharacters = inputBox.value.length;
+                var string = 'No of characters typed are: ' + noOfCharacters + ' out of 8000. <br> Remaining characters: ' + (8000 - noOfCharacters);
+                document.getElementById('lblCountCharacters').innerHTML = string;
+            }            
+
+        </script>
     </div>
     <div id="footer">      
         <table style="width: 100%">
