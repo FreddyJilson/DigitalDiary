@@ -72,6 +72,7 @@
       <DependentUpon>DigitalDiary.mdf</DependentUpon>
     </Content>
     <Content Include="Diary.aspx" />
+    <Content Include="EditJournal.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Register.aspx" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="Diary.aspx.designer.cs">
       <DependentUpon>Diary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditJournal.aspx.cs">
+      <DependentUpon>EditJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditJournal.aspx.designer.cs">
+      <DependentUpon>EditJournal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

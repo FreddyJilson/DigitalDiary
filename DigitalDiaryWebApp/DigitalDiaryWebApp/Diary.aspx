@@ -52,10 +52,11 @@
                         <asp:TableRow>
                             <asp:TableCell Width="100%" Height="40%"><asp:Calendar ID="calendarDiary" runat="server" Height="40%"  Width="100%" OnSelectionChanged="calendarDiary_SelectionChanged"></asp:Calendar></asp:TableCell>
                         </asp:TableRow>
+                        <asp:TableRow><asp:TableCell><asp:Label ID="lblDate" runat="server" Text=""></asp:Label></asp:TableCell></asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell Width="100%"><asp:TextBox ID="txtJournal" ReadOnly="true" BackColor="Transparent" runat="server" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
                         </asp:TableRow>
-
+                        
                         <asp:TableRow><asp:TableCell><asp:Label ID="lblCountCharacters" runat="server" Text=""></asp:Label></asp:TableCell></asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell Width="100%"><asp:TextBox ID="txtEditJournal" Text="Type here to add your journal entry..." BackColor="White" runat="server" ToolTip="Type here to add or edit your journal entry!" Height="300px"  Width="100%" TextMode="MultiLine"></asp:TextBox></asp:TableCell>            
