@@ -75,7 +75,7 @@
                             <asp:TableCell><asp:Button ID="btnEditJournal" runat="server" Text="Edit journal" Width="100%" CssClass="myButtons" OnClick="btnEditJournal_Click"/></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell><asp:Button ID="btnDeleteJournal" runat="server" Text="Delete journal" Width="100%" CssClass="myButtons"/></asp:TableCell>
+                            <asp:TableCell><asp:Button ID="btnDeleteJournal" runat="server" Text="Delete journal" Width="100%" CssClass="myButtons" OnClick="btnDeleteJournal_Click"/></asp:TableCell>
                         </asp:TableRow>                       
                     </asp:Table> 
                 </td>

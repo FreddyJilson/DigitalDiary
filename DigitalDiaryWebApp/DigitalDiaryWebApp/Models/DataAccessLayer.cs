@@ -52,7 +52,9 @@ namespace DigitalDiaryWebApp.Models
             }
         }
 
-        // Methods called from User class
+        /// <summary>
+        /// User.cs class method calls
+        /// </summary>
 
         public DataSet GetAllUsers()
         {
@@ -60,7 +62,7 @@ namespace DigitalDiaryWebApp.Models
             command.CommandText = "SELECT * FROM[User]";
             return ReadData(command);
         }
-
+                        
         public void RegisterUser(string EmailId, string UserName, string Password, string Fullname)
         {
             // Road block: I was having issues to add the user registration details to the user table.
@@ -88,20 +90,12 @@ namespace DigitalDiaryWebApp.Models
             if (recordCount > 0)
                 return true;
             return false;
-        }
+        }      
 
-        public bool CheckJournalEntryExists(string journalDate, string emailId)
-        {
-            SqlCommand command = new SqlCommand();
-            command.Parameters.AddWithValue("@JournalDate", journalDate);
-            command.Parameters.AddWithValue("@EmailId", emailId);
-            command.CommandText = "SELECT COUNT(*) FROM[Diary] WHERE([JournalDate] = @JournalDate AND [EmailId] = @EmailId)";
-            int recordCount = CheckRecordExistInTable(command);
-            if (recordCount > 0)
-                return true;
-            return false;
-        }
-
+        /// <summary>
+        /// Diary.cs class method calls
+        /// </summary>
+        
         public void AddDiaryJournalEntry(string journalDate, string emailId, string journalContent)
         {
             SqlCommand command = new SqlCommand();
@@ -125,6 +119,16 @@ namespace DigitalDiaryWebApp.Models
             InsertOrUpdateOrDeleteData(command);            
         }
 
+        public void DeleteDiaryJournalEntry(string EmailId, string JournalDate)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@EmailId", EmailId);
+            command.Parameters.AddWithValue("@JournalDate", JournalDate);
+            command.CommandText = "DELETE FROM Diary WHERE EmailId = @EmailId AND JournalDate = @JournalDate";
+            InsertOrUpdateOrDeleteData(command);
+
+        }
+
         public DataSet ViewJournalEntryByDateAndEmailId(string journalDate, string emailId)
         {
             SqlCommand command = new SqlCommand();
@@ -132,6 +136,18 @@ namespace DigitalDiaryWebApp.Models
             command.Parameters.AddWithValue("@EmailId", emailId);
             command.CommandText = "SELECT * FROM[Diary] WHERE([JournalDate] = @JournalDate AND [EmailId] = @EmailId)";
             return ReadData(command);
+        }
+
+        public bool CheckJournalEntryExists(string journalDate, string emailId)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@JournalDate", journalDate);
+            command.Parameters.AddWithValue("@EmailId", emailId);
+            command.CommandText = "SELECT COUNT(*) FROM[Diary] WHERE([JournalDate] = @JournalDate AND [EmailId] = @EmailId)";
+            int recordCount = CheckRecordExistInTable(command);
+            if (recordCount > 0)
+                return true;
+            return false;
         }
     }
 }

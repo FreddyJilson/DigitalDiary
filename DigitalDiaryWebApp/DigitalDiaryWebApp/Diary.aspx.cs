@@ -31,46 +31,7 @@ namespace DigitalDiaryWebApp
             {
                 Response.Redirect("Home.aspx");
             }
-        }
-
-        protected void btnAddJournal_Click(object sender, EventArgs e)
-        {
-            User user = (User)Session["User"];
-            var diary = new Models.Diary();
-            var feedbackMessages = diary.AddJournalEntry(calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy"),user.EmailId,txtEditJournal.Text);
-            lblMessage.Text = "";
-
-            foreach (var message in feedbackMessages)
-            {
-                lblMessage.Text += message;
-            }
-
-            if(feedbackMessages.Count == 1)
-            {
-                foreach (var message in feedbackMessages)
-                {
-                    if (message.Equals("* Please enter valid journal entry of atleast 100 characters and not more than 8000 characters"))
-                    {
-                        txtEditJournal.Visible = true;
-                        btnAddJournal.Visible = true;
-                        txtJournal.Visible = false;
-                        btnEditJournal.Visible = false;
-                        btnDeleteJournal.Visible = false;
-                    }
-
-                    else
-                    {
-                        txtEditJournal.Text = "Type here to add your journal entry...";
-                        txtEditJournal.Visible = false;
-                        btnAddJournal.Visible = false;
-                        txtJournal.Visible = false;
-                        btnEditJournal.Visible = false;
-                        btnDeleteJournal.Visible = false;
-                    }
-                }
-                
-            }                          
-        }
+        }        
 
         protected void calendarDiary_SelectionChanged(object sender, EventArgs e)
         {
@@ -131,6 +92,45 @@ namespace DigitalDiaryWebApp
             }
         }
 
+        protected void btnAddJournal_Click(object sender, EventArgs e)
+        {
+            User user = (User)Session["User"];
+            var diary = new Models.Diary();
+            var feedbackMessages = diary.AddJournalEntry(calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy"), user.EmailId, txtEditJournal.Text);
+            lblMessage.Text = "";
+
+            foreach (var message in feedbackMessages)
+            {
+                lblMessage.Text += message;
+            }
+
+            if (feedbackMessages.Count == 1)
+            {
+                foreach (var message in feedbackMessages)
+                {
+                    if (message.Equals("* Please enter valid journal entry of atleast 100 characters and not more than 8000 characters"))
+                    {
+                        txtEditJournal.Visible = true;
+                        btnAddJournal.Visible = true;
+                        txtJournal.Visible = false;
+                        btnEditJournal.Visible = false;
+                        btnDeleteJournal.Visible = false;
+                    }
+
+                    else
+                    {
+                        txtEditJournal.Text = "Type here to add your journal entry...";
+                        txtEditJournal.Visible = false;
+                        btnAddJournal.Visible = false;
+                        txtJournal.Visible = false;
+                        btnEditJournal.Visible = false;
+                        btnDeleteJournal.Visible = false;
+                    }
+                }
+
+            }
+        }
+
         protected void btnEditJournal_Click(object sender, EventArgs e)
         {
             User user = (User)Session["User"];
@@ -140,6 +140,29 @@ namespace DigitalDiaryWebApp
             diary.Content = txtJournal.Text;
             Session["JournalEntry"] = diary;
             Response.Redirect("EditJournal.aspx");
+        }
+
+        protected void btnDeleteJournal_Click(object sender, EventArgs e)
+        {                       
+            // If date is not selected, show error message
+            if (calendarDiary.SelectedDate.Date == DateTime.MinValue.Date)
+            {
+                lblMessage.Text = "* Please select a date.";
+            }
+
+            // Otherwise perform delete execution and hide UI elements so user wont perform repetitive UI actions.
+            else
+            {
+                User user = (User)Session["User"];
+                Models.Diary myDiary = new Models.Diary();
+                myDiary.DeleteJournalEntry(user.EmailId, calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy"));
+                txtEditJournal.Visible = false;
+                txtJournal.Visible = false;
+                btnEditJournal.Visible = false;
+                btnDeleteJournal.Visible = false;
+                btnAddJournal.Visible = false;
+                lblMessage.Text = "* The journal entry for " + calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy") + " is now deleted.";
+            }            
         }
     }
 }

@@ -65,6 +65,11 @@ namespace DigitalDiaryWebApp.Models
             databaseAccess.EditDiaryJournalEntry(EmailId, JournalDate, JournalContent);
         }
 
+        public void DeleteJournalEntry(string EmailId, string JournalDate)
+        {
+            databaseAccess.DeleteDiaryJournalEntry(EmailId, JournalDate);
+        }
+
         public bool CheckJournalExistsForTheUser(string selectedDate, string emailId)
         {
             return databaseAccess.CheckJournalEntryExists(selectedDate, emailId);
