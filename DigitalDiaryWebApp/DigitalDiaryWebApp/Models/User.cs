@@ -81,9 +81,9 @@ namespace DigitalDiaryWebApp.Models
             List<string> validationResult = new List<string>();
 
             // When registering, if user email already exists in database then show the below error message
-            if (CheckIfUserEmailExists(EmailId))
+            if (CheckIfUserEmailExists(EmailId) || CheckIfUserNameExists(EncryptUserName(UserName)))
             {
-                validationResult.Add("* An account with this email already exists. Please login using existing account.");
+                validationResult.Add("* An account with this email or username already exists. Please login using existing account.");
             }
 
             // Otherwise carry on doing remaining validation checks
@@ -94,10 +94,7 @@ namespace DigitalDiaryWebApp.Models
 
                 if (UserName.Length <= 5 || UserName.Length > 10)
                     validationResult.Add("* Valid user name is required.");
-
-                if (CheckIfUserNameExists(EncryptUserName(UserName)))
-                    validationResult.Add("* Username not available.");
-
+                
                 if (!ValidatePassword(Password))
                 {
                     validationResult.Add("* Valid password required ranging from 8 to 14 characters and requires atleast: <br>" +
