@@ -61,7 +61,7 @@
                           </td>
                       </tr>
                 <tr>
-                    <td><asp:Label ID="lblFreeTrial" runat="server" Text="For free trial: Username is MyDiary and Password is MyDiary100%"></asp:Label></td>
+                    <td><asp:Label ID="lblFreeTrial" runat="server" Text="For free trial: Username is MyDiary and Password is MyDiary100% or sign up for an account to login"></asp:Label></td>
                 </tr>
             </table>
     </div>
