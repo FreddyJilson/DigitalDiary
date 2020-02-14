@@ -66,7 +66,7 @@
                          </asp:Table>
                     </td>
                     <td>
-                         <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>     
+                         <asp:Label ID="lblErrorMessage" ForeColor="Red" runat="server" Text=""></asp:Label>     
                     </td>
                  </tr>
             </table>
