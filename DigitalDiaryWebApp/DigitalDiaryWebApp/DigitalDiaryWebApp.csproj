@@ -77,8 +77,14 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="style\android-chrome-192x192.png" />
+    <Content Include="style\android-chrome-512x512.png" />
+    <Content Include="style\apple-touch-icon.png" />
     <Content Include="style\background.png" />
     <Content Include="style\bullet.png" />
+    <Content Include="style\favicon-16x16.png" />
+    <Content Include="style\favicon-32x32.png" />
+    <Content Include="style\favicon.ico" />
     <Content Include="style\graphic.png" />
     <Content Include="style\link.png" />
     <Content Include="style\search.png" />
@@ -126,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\DigitalDiary - Web Deploy.pubxml" />
+    <Content Include="style\site.webmanifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

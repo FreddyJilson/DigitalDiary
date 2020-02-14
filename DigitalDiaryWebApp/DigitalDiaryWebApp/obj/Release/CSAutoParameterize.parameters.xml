@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DigitalDiary-Web.config Connection String" description="DigitalDiary Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DigitalDiary.mdf;Integrated Security=True;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Freddy\\Desktop\\DigitalDiary\\DigitalDiaryWebApp\\DigitalDiaryWebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DigitalDiary']/@connectionString" />
+  </parameter>
+</parameters>
