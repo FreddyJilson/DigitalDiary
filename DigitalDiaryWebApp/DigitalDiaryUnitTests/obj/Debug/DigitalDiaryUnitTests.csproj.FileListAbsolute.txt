@@ -1,0 +1,16 @@
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\DigitalDiaryUnitTests.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\DigitalDiaryUnitTests.pdb
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\DigitalDiaryWebApp.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\DigitalDiaryWebApp.pdb
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\DigitalDiaryWebApp.dll.config
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\obj\Debug\DigitalDiaryUnitTests.csprojAssemblyReference.cache
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\obj\Debug\DigitalDiaryUnitTests.csproj.CopyComplete
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\obj\Debug\DigitalDiaryUnitTests.dll
+C:\Users\Freddy\Desktop\DigitalDiary\DigitalDiaryWebApp\DigitalDiaryUnitTests\obj\Debug\DigitalDiaryUnitTests.pdb

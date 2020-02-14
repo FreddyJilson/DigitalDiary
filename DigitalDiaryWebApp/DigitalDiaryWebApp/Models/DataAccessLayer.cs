@@ -90,12 +90,23 @@ namespace DigitalDiaryWebApp.Models
             if (recordCount > 0)
                 return true;
             return false;
-        }      
+        }
+        
+        public bool CheckUserNameExists(string UserName)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.CommandText = "SELECT COUNT(*) FROM[User] WHERE([UserName] = @UserName)";
+            int recordCount = CheckRecordExistInTable(command);
+            if (recordCount > 0)
+                return true;
+            return false;
+        }
 
         /// <summary>
         /// Diary.cs class method calls
         /// </summary>
-        
+
         public void AddDiaryJournalEntry(string journalDate, string emailId, string journalContent)
         {
             SqlCommand command = new SqlCommand();
