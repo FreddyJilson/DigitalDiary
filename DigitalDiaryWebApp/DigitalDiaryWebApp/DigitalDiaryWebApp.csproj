@@ -132,8 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\DigitalDiary - Web Deploy.pubxml" />
     <Content Include="style\site.webmanifest" />
+    <None Include="Properties\PublishProfiles\DigitalDiary - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
