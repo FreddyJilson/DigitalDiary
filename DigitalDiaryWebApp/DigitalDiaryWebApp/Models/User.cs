@@ -90,12 +90,13 @@ namespace DigitalDiaryWebApp.Models
             else
             {
                 if (!ValidateEmail(EmailId) || EmailId.Length <= 0 || EmailId.Length > 254)
-                {
-                    validationResult.Add("* Valid email is required.");
-                }
+                    validationResult.Add("* Valid email is required.");                
 
                 if (UserName.Length <= 5 || UserName.Length > 10)
                     validationResult.Add("* Valid user name is required.");
+
+                if (CheckIfUserNameExists(EncryptUserName(UserName)))
+                    validationResult.Add("* Username not available.");
 
                 if (!ValidatePassword(Password))
                 {
@@ -105,7 +106,7 @@ namespace DigitalDiaryWebApp.Models
                                          "&nbsp 1 digit and <br>" +
                                          "&nbsp 1 special character ");
                 }
-
+                                
                 if (Fullname.Length <= 0 || Fullname.Length > 30)
                     validationResult.Add("* Valid full name is required.");
             }
@@ -167,6 +168,11 @@ namespace DigitalDiaryWebApp.Models
         private bool CheckIfUserEmailExists(string EmailID)
         {
             return databaseAccess.CheckEmailExists(EmailID);
+        }
+
+        private bool CheckIfUserNameExists(string UserName)
+        {
+            return databaseAccess.CheckUserNameExists(UserName);
         }
     }
 }
