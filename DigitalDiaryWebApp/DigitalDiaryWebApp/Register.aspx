@@ -55,6 +55,10 @@
                              <asp:TableRow>
                                  <asp:TableCell ColumnSpan="2"><asp:Button ID="btnRegister" runat="server" Text="Register" Width="100%" CssClass="myButtons" OnClick="btnRegister_Click" /></asp:TableCell>
                              </asp:TableRow>
+
+                             <asp:TableRow>
+                                 <asp:TableCell ColumnSpan="2"><asp:Button ID="btnHome" runat="server" Text="Home" Width="100%" CssClass="myButtons" OnClick="btnHome_Click"/></asp:TableCell>
+                             </asp:TableRow>
                          </asp:Table>
                     </td>
                     <td>

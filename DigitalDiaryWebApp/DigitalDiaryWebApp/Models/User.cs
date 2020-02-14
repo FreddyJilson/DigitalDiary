@@ -28,7 +28,7 @@ namespace DigitalDiaryWebApp.Models
 
         //Methods
 
-        /* For user to login Chakra website. Used in: Login.aspx */
+        /* For user to login Digital Diary website. Used in: Home.aspx */
         public User Login(string username, string password)
         {
             //Get all users in the database

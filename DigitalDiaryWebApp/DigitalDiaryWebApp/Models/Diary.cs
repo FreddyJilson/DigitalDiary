@@ -31,7 +31,7 @@ namespace DigitalDiaryWebApp.Models
             var journalDataTable = JournalEntry.Tables[0];
             Diary myDiary = new Diary();
             
-            //Loop through the User Data table and if user id or password or email matches then return the User object with all details
+            //Loop through the Diary Data table then return the Diary object with all details
             if (journalDataTable != null)
             {
                 for (int i = 0; i < journalDataTable.Rows.Count; i++)
@@ -60,6 +60,11 @@ namespace DigitalDiaryWebApp.Models
             return feedbackMessages;
         }
 
+        public void EditJournalEntry(string EmailId, string JournalDate, string JournalContent)
+        {
+            databaseAccess.EditDiaryJournalEntry(EmailId, JournalDate, JournalContent);
+        }
+
         public bool CheckJournalExistsForTheUser(string selectedDate, string emailId)
         {
             return databaseAccess.CheckJournalEntryExists(selectedDate, emailId);
@@ -86,7 +91,6 @@ namespace DigitalDiaryWebApp.Models
                 return false;
             
             return true;
-        }
-
+        }       
     }
 }

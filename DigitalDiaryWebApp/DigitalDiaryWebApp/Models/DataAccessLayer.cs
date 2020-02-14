@@ -115,6 +115,16 @@ namespace DigitalDiaryWebApp.Models
             InsertOrUpdateOrDeleteData(command);
         }
 
+        public void EditDiaryJournalEntry(string EmailId, string JournalDate, string newJournalContent)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@EmailId", EmailId);
+            command.Parameters.AddWithValue("@JournalDate", JournalDate);
+            command.Parameters.AddWithValue("@JournalContent", newJournalContent);
+            command.CommandText = "UPDATE [Diary] SET JournalContent = @JournalContent WHERE EmailId = @EmailId AND JournalDate = @JournalDate";
+            InsertOrUpdateOrDeleteData(command);            
+        }
+
         public DataSet ViewJournalEntryByDateAndEmailId(string journalDate, string emailId)
         {
             SqlCommand command = new SqlCommand();

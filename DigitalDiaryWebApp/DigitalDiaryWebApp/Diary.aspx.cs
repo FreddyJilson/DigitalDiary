@@ -112,7 +112,7 @@ namespace DigitalDiaryWebApp
                     // execute code to show journal content for the specified date and user.
                     var diaryDetails = diary.ViewJournalEntry(calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy"), user.EmailId);
                     lblMessage.Text = "* Scroll down bottom to see journal entry.";
-                    lblDate.Text = "Date: " + calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy") + " (dd/mm/yyyy)";
+                    lblDate.Text = "Date (dd/mm/yyyy): " + calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy");
                     txtJournal.Text = diaryDetails.Content;                    
                 }
 
@@ -125,7 +125,7 @@ namespace DigitalDiaryWebApp
                     btnAddJournal.Visible = true;
                     btnEditJournal.Visible = false;
                     btnDeleteJournal.Visible = false;
-                    lblDate.Text = "Date: " + calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy") + " (dd/mm/yyyy)"; 
+                    lblDate.Text = "Date: (dd/mm/yyyy): " + calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy"); 
                     lblMessage.Text = "* No journal entry is added. Scroll down bottom to add an entry.";
                 }
             }
@@ -136,7 +136,7 @@ namespace DigitalDiaryWebApp
             User user = (User)Session["User"];
             Models.Diary diary = new Models.Diary();            
             diary.GetUser.EmailId = user.EmailId;
-            diary.JournalDate = calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy") + " (dd/mm/yyyy)";
+            diary.JournalDate = calendarDiary.SelectedDate.Date.ToString("dd/MM/yyyy");
             diary.Content = txtJournal.Text;
             Session["JournalEntry"] = diary;
             Response.Redirect("EditJournal.aspx");

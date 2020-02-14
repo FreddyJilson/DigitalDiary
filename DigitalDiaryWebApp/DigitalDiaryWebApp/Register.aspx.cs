@@ -29,5 +29,10 @@ namespace DigitalDiaryWebApp
                 lblErrorMessage.Text += message + "<br>"; 
             }
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
     }
 }
