@@ -4,6 +4,8 @@ A user friendly online diary for you to write down notes happened during the day
 
 Digital diary offers you the ability to take notes on the go anywhere and anytime.
 
+![Digital Diary](https://user-images.githubusercontent.com/37390255/74549007-cf953f00-4f89-11ea-83a0-918feb2b624e.png)
+
 ### Use cases identified:
 
 * Add a journal entry
