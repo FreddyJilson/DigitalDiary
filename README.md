@@ -1,4 +1,4 @@
-# Digital Diary
+# Digital Diary (Archived)
 
 A user friendly online diary for you to write down notes happened during the day. 
 
